@@ -279,21 +279,28 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i1) {
             openCamera();
+            Toast.makeText(MainActivity.this, "onSurfaceTextureAvailable (WxH): " + i + "x" + i1, Toast.LENGTH_SHORT).show();
         }
 
         @Override
-        public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i1) {
+        public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i1) { //params: surfaceTexture, new width, new height
+
+            //Sembla q mai s'executa:
+            Toast.makeText(MainActivity.this, "****onSurfaceTextureSizeChanged (WxH): " + i + "x" + i1, Toast.LENGTH_SHORT).show();
 
         }
 
         @Override
         public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
+
+            Toast.makeText(MainActivity.this, "onSurfaceTextureDestroyed", Toast.LENGTH_SHORT).show();
+
             return false;
         }
 
         @Override
         public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
-
+//            Toast.makeText(MainActivity.this, "onSurfaceTextureUpdated", Toast.LENGTH_SHORT).show();
         }
     };
 
